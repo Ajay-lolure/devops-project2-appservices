@@ -21,7 +21,6 @@ stages:
         repository: $(imageName)
         dockerfile: Dockerfile
         containerRegistry: 'acr-connection'
-	arguments: '--pull'
         tags: |
           $(tag)
 
