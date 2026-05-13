@@ -37,4 +37,5 @@ stages:
         WebAppName: 'appservicegit'
         DockerNamespace: 'appservicegit.azurecr.io'
         DockerRepository: 'html-app'
-        DockerImageTag: 'latest'
+        # DockerImageTag: 'latest'
+        DockerImageTag: '$(Build.BuildId)'
