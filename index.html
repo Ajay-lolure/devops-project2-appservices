@@ -1,6 +1,157 @@
-<html>
-  <body>
-    <h1>My Second DevOps Project 🚀</h1>
-    <h2>Deployed using Git + Azure DevOps + Docker + App Service</h2>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My WebApp</title>
+
+  <style>
+    /* ===== RESET ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: fixed;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 40px;
+      background: rgba(0,0,0,0.6);
+      z-index: 1000;
+    }
+
+    nav h2 {
+      color: #00e6ff;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li {
+      list-style: none;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #00e6ff;
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 { font-size: 3rem; margin-bottom: 10px; }
+    p { max-width: 600px; }
+
+    /* ===== ANIMATIONS ===== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== BUTTON ===== */
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      background: #00e6ff;
+      color: black;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <h2>MyApp</h2>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HOME -->
+  <section id="home">
+    <h1 class="fade-up">Welcome to My WebApp</h1>
+    <p class="fade-up">Simple animated website template using HTML, CSS, and JavaScript.</p>
+    <button onclick="showAlert()">Click Me</button>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h1 class="fade-up">About</h1>
+    <p class="fade-up">This is a smooth animated section. You can connect this with your Azure web app backend easily.</p>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h1 class="fade-up">Contact</h1>
+    <p class="fade-up">Email: your@email.com</p>
+  </section>
+
+  <!-- JS -->
+  <script>
+    // Scroll Animation
+    const elements = document.querySelectorAll('.fade-up');
+
+    function checkScroll() {
+      const triggerBottom = window.innerHeight * 0.8;
+
+      elements.forEach(el => {
+        const boxTop = el.getBoundingClientRect().top;
+
+        if (boxTop < triggerBottom) {
+          el.classList.add('show');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkScroll);
+    window.addEventListener('load', checkScroll);
+
+    // Button Action
+    function showAlert() {
+      alert("✅ Your WebApp is working!");
+    }
+  </script>
+
+</body>
 </html>
+``
