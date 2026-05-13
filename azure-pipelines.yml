@@ -7,7 +7,8 @@ pool:
 
 variables:
   imageName: 'html-app'
-  tag: 'latest'
+  tag: '$(Build.BuildId)'
+  # tag: 'latest'
 
 stages:
 - stage: Build
@@ -43,4 +44,5 @@ stages:
         WebAppName: 'appservicegit'
         DockerNamespace: 'appservicegit.azurecr.io'
         DockerRepository: 'html-app'
-        DockerImageTag: 'latest'
+        # DockerImageTag: 'latest'
+        DockerImageTag: '$(Build.BuildId)'
