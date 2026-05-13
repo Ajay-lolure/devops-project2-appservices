@@ -14,19 +14,20 @@ stages:
   jobs:
   - job: Build
     steps:
-  - script: |
-    echo "===== Showing Dockerfile being used ====="
-    pwd
-    ls -la
-    sed -n '1,20p' Dockerfile
-  displayName: "Verify Dockerfile content"
+    - script: |
+        echo "===== Showing Dockerfile being used ====="
+        pwd
+        ls -la
+        sed -n '1,20p' Dockerfile
+      displayName: "Verify Dockerfile content"
+
     - task: Docker@2
       displayName: Build and Push Image
       inputs:
         command: buildAndPush
         repository: $(imageName)
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-	buildContext: '$(Build.SourcesDirectory)'
+        buildContext: '$(Build.SourcesDirectory)'
         containerRegistry: 'acr-connection'
         tags: |
           $(tag)
