@@ -1,26 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My WebApp</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <style>
-    /* ===== RESET ===== */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+<title>My WebApp 🚀</title>
 
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
-      color: white;
-      overflow-x: hidden;
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: white;
+}
+
+/* NAVBAR */
+nav {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 40px;
+  background: rgba(0,0,0,0.7);
+}
+
+nav h2 {
+  color: #00e6ff;
+}
+
+nav ul {
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li {
+  list-style: none;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+/* SECTIONS */
+section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+}
+
+/* IMAGE STYLE */
+img {
+  width: 250px;
+  height: auto;
+  border-radius: 15px;
+  margin: 20px 0;
+}
+
+/* ANIMATION */
+.fade-up {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* BUTTON */
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background: #00e6ff;
+  color: black;
+  cursor: pointer;
+  border-radius: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <h2>MyApp 🚀</h2>
+  <ul>
+    <li><a href="#home">🏠 Home</a></li>
+    <li><a href="#about">📘 About</a></li>
+    <li><a href="#contact">📞 Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HOME -->
+<section id="home">
+  <h1 class="fade-up">Welcome to My WebApp 🚀</h1>
+
+  <p class="fade-up">
+    Build amazing apps with animations ✨ and deploy using Git + Azure ☁️
+  </p>
+
+  <!-- IMAGE FROM INTERNET -->
+  <img src="https://picsum.photos/300/200" class="fade-up" />
+
+  <button onclick="showAlert()">🔥 Click Me</button>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h1 class="fade-up">About Me 👨‍💻</h1>
+
+  <!-- IMAGE -->
+  <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" 
+       class="fade-up"/>
+
+  <p class="fade-up">
+    I build modern web apps using HTML ⚡ CSS 🎨 JavaScript 🚀 and deploy using pipelines.
+  </p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h1 class="fade-up">Contact 📧</h1>
+
+  <!-- IMAGE -->
+  <img src="https://picsum.photos/seed/contact/300/200" 
+       class="fade-up"/>
+
+  <p class="fade-up">
+    Email: your@email.com ✉️
+  </p>
+</section>
+
+<!-- JS -->
+<script>
+const elements = document.querySelectorAll('.fade-up');
+
+function checkScroll() {
+  const triggerBottom = window.innerHeight * 0.8;
+
+  elements.forEach(el => {
+    const boxTop = el.getBoundingClientRect().top;
+    if (boxTop < triggerBottom) {
+      el.classList.add('show');
     }
+  });
+}
 
-    /* ===== NAVBAR ===== */
-    nav {
-      position: fixed;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      padding: 15px 40px;
-      background: rgba(0,0,0,0.6);
+window.addEventListener('scroll', checkScroll);
+window.addEventListener('load', checkScroll);
+
+function showAlert() {
+  alert("✅ Your animated webapp is working 🚀");
+}
+</script>
+
+</body>
+</html>

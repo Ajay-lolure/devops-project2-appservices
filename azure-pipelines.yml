@@ -28,7 +28,6 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
 	buildContext: '$(Build.SourcesDirectory)'
         containerRegistry: 'acr-connection'
-	arguments: '--pull'
         tags: |
           $(tag)
 
